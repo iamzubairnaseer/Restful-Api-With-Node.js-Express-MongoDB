@@ -14,5 +14,5 @@ mongoose.connect(process.env.DB_Connection,{useUnifiedTopology: true,useNewUrlPa
     console.log('connected to DB!')
 );
 
-app.listen(3000);
+app.listen(3000, ()=> console.log('Server Started'));
  
