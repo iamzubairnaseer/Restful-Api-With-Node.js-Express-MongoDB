@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser  = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
 
+app.use(express.json({extended:false}))
+app.use(cors());
 app.use(bodyParser.json());
 
 const signupRoute = require('./routes/signup');
@@ -14,5 +17,5 @@ mongoose.connect(process.env.DB_Connection,{useUnifiedTopology: true,useNewUrlPa
     console.log('connected to DB!')
 );
 
-app.listen(3000, ()=> console.log('Server Started'));
+app.listen(3000, ()=> console.log('Server Started at 3000'));
  

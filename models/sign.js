@@ -24,4 +24,4 @@ const signupSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Sign',signupSchema);
+module.exports = mongoose.model('Signup',signupSchema);
