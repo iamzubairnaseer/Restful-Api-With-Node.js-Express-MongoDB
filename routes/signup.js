@@ -5,22 +5,24 @@ const mongoose = require('mongoose');
 
 router.post('/', async (req,res)=>{
 
-    const {
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        password
-    } = req.body;
-    let user  = {};
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.email = email;
-    user.phoneNumber = phoneNumber;
-    user.password = password;
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let email = req.body.email;
+    let phoneNumber = req.body.phoneNumber;
+    let password = req.body.password;
+
+    let user = {
+        firstName : firstName,
+        lastName : lastName,
+        email : email,
+        phoneNumber : phoneNumber,
+        password : password
+    }
+
+    console.log(user);
+
     let signModel = new Signup(user);
-    console.log(req.body);
-    await signModel.save();
+    signModel.save();
     res.json(signModel);
 
 

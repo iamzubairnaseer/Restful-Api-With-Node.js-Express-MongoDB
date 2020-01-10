@@ -5,15 +5,17 @@ const bodyParser  = require('body-parser');
 const cors = require('cors');
 require('dotenv/config');
 
-app.use(express.json({extended:false}))
+app.use(express.json({extended:true}));
+
 app.use(cors());
+
 app.use(bodyParser.json());
 
 const signupRoute = require('./routes/signup');
 
 app.use('/signup', signupRoute);
 
-mongoose.connect(process.env.DB_Connection,{useUnifiedTopology: true,useNewUrlParser: true },() => 
+mongoose.connect("mongodb+srv://iamzubairnaseer:<Passw0rd>@cluster0-nts6u.mongodb.net/test?retryWrites=true&w=majority",{useUnifiedTopology: true,useNewUrlParser: true },() => 
     console.log('connected to DB!')
 );
 
